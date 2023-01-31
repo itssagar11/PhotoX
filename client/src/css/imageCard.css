@@ -21,7 +21,7 @@
 
 .poster-container {
 	position: relative;
-	width: 409px;
+	width: 356px;
 	transition: padding 0.3s ease-in-out;
 }
 
@@ -73,8 +73,12 @@
 	background: rgba(0, 0, 0, .3);
 }
 
-@media only screen and (max-width: 600px) {
-	
+@media only screen and (max-width: 767px) {
+	.poster-container {
+		position: relative;
+		width: 98%;
+		transition: padding 0.3s ease-in-out;
+	}
 	.poster {
 		width: 100%;
 		
