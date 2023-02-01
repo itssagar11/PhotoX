@@ -3,6 +3,7 @@ import "./css/App.css";
 import ImageCard from "./imageCard";
 import GenerateButton from "./generateButton";
 import Loader from "./loading";
+const isloading=false;
 
 
 
@@ -65,35 +66,39 @@ const App= ()=>{
           
 
         
-        
-       
-          <Loader/>
-         
-              {/* <div className="sub-container">
-               {
-                images.length==0?(
-                  <>
-                  <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-16.jpg"} />
-                  <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-1.jpg"} />
-                  <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-1.jpg"} />
-                   <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-16.jpg"} />
-                   <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-1.jpg"} />
-                   <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-1.jpg"} />
-                  </>
-                ):(
-                  images.map((image)=>(
-               
-                    <ImageCard url={image.url} />
-                 
-                  ))
-                )
-               }
+       { isloading==true?(  <Loader/>):(
+           <div className="sub-container">
+           {
+            images.length==0?(
+              <>
+              <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-16.jpg"} />
+              <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-1.jpg"} />
+              <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-1.jpg"} />
+               <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-16.jpg"} />
+               <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-1.jpg"} />
+               <ImageCard url={"https://ld-wp73.template-help.com/wordpress/prod_18250/v1/wp-content/uploads/2018/05/portfolio-1.jpg"} />
+              </>
+            ):(
+              images.map((image)=>(
+           
+                <ImageCard url={image.url} />
              
-              
-                 
-  
-                
-                </div> */}
+              ))
+            )
+           }
+         
+          
+             
+
+            
+            </div>
+
+
+       )}
+       
+        
+         
+             
            
      </>
     )

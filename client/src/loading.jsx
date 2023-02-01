@@ -1,6 +1,6 @@
 import React from "react"
 import "./css/loader.css"
-import aiLoader from "./images/AiLoaing.gif"
+import LoaderImage from "./images/horse.jpg"
 const Loader=()=>{
     return(
         <>
@@ -11,8 +11,8 @@ const Loader=()=>{
     <div className="pulse-bubble pulse-bubble-3"></div>
   </div>
   <div className="flex-box">
-        <img  className="aiLoader" src={aiLoader}/>
-        <p id="loader"><b>Tips:-</b>dde d ewd wd fwe  de d d dewd d d de  dew dddeded dew e d</p>
+        <img  className="aiLoader" src={LoaderImage}/>
+        <p id="loader"><b>Tips:-</b><i>Ask for Abstract or implausible images.</i><h1>"Photograp of an astronaut riding a horse"</h1></p>
 
   </div>
 </div>
