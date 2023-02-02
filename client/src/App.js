@@ -3,7 +3,7 @@ import "./css/App.css";
 import ImageCard from "./imageCard";
 import GenerateButton from "./generateButton";
 import Loader from "./loading";
-const isloading=false;
+
 
 
 
@@ -24,8 +24,14 @@ const App= ()=>{
     const [images,setImages]= useState([]);
   const [prompt,setPrompt]=useState("");
    const[dimension,setDimension]=useState("1024x1024");
-
+  const[ isloading,setIsloader]=useState(false);
+  useEffect(()=>{
+    setTimeout(()=> {
+      setIsloader(false)
+    },5000);
+  },[])
     const generateImage= async(data)=>{
+      setIsloader(true);
       if(data.prompt=="") return
         const response= await fetch(`http://localhost:4000/delle/generator`,{
                         method:'POST',
@@ -37,6 +43,8 @@ const App= ()=>{
         const res= await response.json();
         console.log(images)
          setImages(res);
+        
+        
     }
    
  
