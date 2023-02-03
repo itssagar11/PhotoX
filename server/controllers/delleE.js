@@ -1,5 +1,7 @@
 const express= require("express");
 const dotenv= require("dotenv");
+const axios=require("axios");
+const async=require("async");
 const {Configuration,OpenAIApi }= require("openai");
 dotenv.config();
 const configuration= new Configuration({
@@ -17,11 +19,26 @@ exports.delleE= async (req,res,next)=>{
         n:10,
         size:size,
     });
-    console.log(typeof response);
-    res.setHeader("Content-Type","JSON/text");
-    res.status(200);
-    res.send(response.data.data);
-    res.end();
+
+    const responseArray=response.data.data;
+    const resObj=[];
+    async.each(responseArray,async (resp,callback)=>{
+        const url= resp.url;
+        const r= await axios.get(url, { responseType: "arraybuffer" });
+        resObj.push(r.data);
+        // console.log(r.data);
+
+    },()=>{
+        res.setHeader("Content-Type","JSON/text");
+        res.status(200);
+        // res.send(responseArray);
+         console.log(resObj);
+        res.send(JSON.stringify(resObj));
+        res.end();
+    })
+  
+    // console.log(reslt);
+   
 
 };
 
