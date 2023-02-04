@@ -35,7 +35,7 @@ const App= ()=>{
     const generateImage= async(data)=>{
       setIsloader(true);
       if(data.prompt=="") return
-        const response= await fetch(`http://localhost:4000/delle/generator`,{
+        const response= await fetch(`https://photox-api-production.up.railway.app/delle/generator`,{
                         method:'POST',
                         headers:{
                           'Content-Type':'application/json'
