@@ -17,7 +17,7 @@ const Header=({callback})=>{
           <span>Hello,User</span>
         </div>
         </div>
-     <hr /><br /><p>Edit the detailed description</p><div className="search-container">
+    <br /><p style={{margin:"5px"}}>Edit the detailed description</p><div className="search-container">
   
           <input type="text" id="search-bar" placeholder="A Range of Mountains" value={prompt}
             onChange={(e) => setPrompt(e.target.value)} />
