@@ -5,7 +5,8 @@ const GenerateButton=  ({ prompt,size,callback})=>{
   
     const handleClick= async()=>{
       SetLoading(true);
-      await  callback({prompt,size})
+      await  callback({
+        prompt:prompt,size:size})
       SetLoading(false);
     };
 

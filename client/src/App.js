@@ -5,7 +5,7 @@ import Header from "./header";
 import GenerateButton from "./generateButton";
 import Loader from "./loading";
 import BackGround from "./background";
-
+import loginpopup from "./loginpopup";
 
 
 
@@ -34,15 +34,22 @@ const App= ()=>{
 
     const generateImage= async(data)=>{
       setIsloader(true);
+      console.log(data)
       if(data.prompt=="") return
-        const response= await fetch(`https://photox-api-production.up.railway.app/delle/generator`,{
+      
+        const response= await fetch(`http://localhost:4000/delle/generator`,{
                         method:'POST',
-                        headers:{
-                          'Content-Type':'application/json'
+                        headers: {
+                          'Access-Control-Allow-Origin': '*',
+                          "Content-Type": "application/json"
+                          
                         },
                         body:JSON.stringify(data)
         });
-      
+        if(response.status!='200'){
+          console.log(response);
+          return;
+        }
         const res= await response.json();
         console.log(res);
          setImages(res);

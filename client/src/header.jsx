@@ -23,7 +23,7 @@ const Header=({callback})=>{
             onChange={(e) => setPrompt(e.target.value)} />
           <GenerateButton
             prompt={prompt}
-            size={dimension}
+            size="256x256"
             callback={callback} />
         </div>
         
